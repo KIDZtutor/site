@@ -1,0 +1,113 @@
+[
+    { "id": "bioorg", "title": "Биоорганическая химия", "topics": [] },
+    { "id": "medbio", "title": "Медицинская биология", "topics": [] },
+    { "id": "biophys", "title": "Биофизика", "topics": [] },
+    { "id": "org", "title": "ОРГ", "topics": [] },
+    { "id": "philosophy", "title": "Философия", "topics": [] },
+    { "id": "history_ru", "title": "История России", "topics": [] },
+    { 
+        "id": "anatomy", 
+        "title": "Анатомия", 
+        "topics": [
+            {
+                "title": "База: Экзамен и основные материалы",
+                "description": "Здесь лежат основные учебники, методички и билеты к экзамену по анатомии.",
+                "files": [
+                    { "name": "Вопросы к экзамену.pdf", "url": "files/anatomy/exam_questions.pdf" },
+                    { "name": "Учебник Сапина (Том 1).pdf", "url": "files/anatomy/sapin_1.pdf" }
+                ],
+                "links": [
+                    { "name": "Плейлист с разбором базы на YouTube", "url": "https://youtube.com/..." }
+                ],
+                "rutube_id": ""
+            },
+            {
+                "title": "1 модуль: Остеология",
+                "description": "Строение костей, череп, позвонки.",
+                "files": [
+                    { "name": "Методичка по черепу.docx", "url": "files/anatomy/skull.docx" },
+                    { "name": "Таблица отверстий черепа.pdf", "url": "files/anatomy/holes.pdf" }
+                ],
+                "links": [],
+                "rutube_id": "" 
+            },
+            {
+                "title": "2 модуль: Артрология",
+                "description": "",
+                "files": [],
+                "links": [],
+                "rutube_id": "" 
+            },
+            {
+                "title": "3 модуль: Миология",
+                "description": "",
+                "files": [],
+                "links": [],
+                "rutube_id": "" 
+            },
+            {
+                "title": "4 модуль: Спланхнология",
+                "description": "",
+                "files": [],
+                "links": [],
+                "rutube_id": "",
+                "subtopics": [
+                    {
+                        "title": "Пищеварительная система",
+                        "description": "",
+                        "files": [],
+                        "links": []
+                    },
+                    {
+                        "title": "Дыхательная система",
+                        "description": "",
+                        "files": [],
+                        "links": []
+                    },
+                    {
+                        "title": "Мочевыделительная система",
+                        "description": "",
+                        "files": [],
+                        "links": []
+                    },
+                    {
+                        "title": "Половые системы",
+                        "description": "",
+                        "files": [],
+                        "links": []
+                    }
+                ]
+            },
+            {
+                "title": "5 модуль: Ангиология",
+                "description": "",
+                "files": [],
+                "links": [],
+                "rutube_id": "",
+                "subtopics": [
+                    { "title": "Сердце", "files": [], "links": [] },
+                    { "title": "Артерии", "files": [], "links": [] },
+                    { "title": "Вены", "files": [], "links": [] }
+                ]
+            },
+            {
+                "title": "6 модуль: Неврология",
+                "description": "",
+                "files": [],
+                "links": [],
+                "rutube_id": "",
+                "subtopics": [
+                    { "title": "ЦНС (Центральная нервная система)", "files": [], "links": [] },
+                    { "title": "ПНС (Периферическая нервная система)", "files": [], "links": [] }
+                ]
+            }
+        ] 
+    },
+    { "id": "histology", "title": "Гистология", "topics": [] },
+    { "id": "first_aid", "title": "Первая помощь и уход за больными", "topics": [] },
+    { "id": "practice", "title": "Практика по получению первичных умений и навыков", "topics": [] },
+    { "id": "history_med", "title": "История медицины", "topics": [] },
+    { "id": "latin", "title": "Латинский", "topics": [] },
+    { "id": "bzhd", "title": "БЖД", "topics": [] },
+    { "id": "other", "title": "Прочее", "topics": [] }
+]

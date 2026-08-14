@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #0d1117;
+    --panel-bg: #161b22;
+    --border-color: #30363d;
+    --text-main: #c9d1d9;
+    --accent-blue: #58a6ff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Шапка и глобальный поиск */
+.header {
+    background-color: var(--panel-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    margin-bottom: 25px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logo:hover {
+    color: var(--accent-blue);
+}
+
+.search-box {
+    position: relative;
+    width: 260px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    border-radius: 4px;
+}
+
+.search-box input:focus {
+    border-color: var(--accent-blue);
+}
+
+/* Выпадающий список поиска */
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-item {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+.search-item:hover {
+    background-color: #1f6feb33;
+    color: var(--accent-blue);
+}
+
+/* Списки и карточки */
+.subjects-list {
+    list-style-type: none;
+    padding-bottom: 40px;
+}
+
+.subjects-list li {
+    margin-bottom: 10px;
+}
+
+.subjects-list a {
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-size: 14px;
+}
+
+.subjects-list a:hover {
+    text-decoration: underline;
+    color: var(--text-main);
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.topic-box {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.topic-box h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.materials-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.materials-links a {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.materials-links a:hover {
+    border-color: var(--accent-blue);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 15px;
+    background-color: #010409;
+    border: 1px solid var(--border-color);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}/* Текстовое описание внутри темы */
+.topic-desc {
+    font-size: 13px;
+    color: var(--text-main);
+    opacity: 0.8;
+    margin-bottom: 12px;
+}/* Контейнер для всех подразделов внутри модуля */
+.subtopics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Расстояние между подразделами */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color); /* Пунктирная линия, отделяющая подразделы от заголовка модуля */
+}
+
+/* Сам подраздел */
+.subtopic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Заголовок подраздела (например, "Пищеварительная система") */
+.subtopic h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent-color); /* Сделаем их акцентным цветом, чтобы выделялись */
+}
+
+/* Убираем отступ у кнопок файлов внутри подразделов, так как gap уже задан выше */
+.subtopic .materials-links {
+    margin-top: 0; 
+}
