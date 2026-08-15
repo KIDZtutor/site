@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             subject.topics.forEach(topic => {
                 const box = document.createElement("div");
-                box.className = "topic-box";
+                box.className = "topic-box collapsed";
                 
                 let html = `<h3>${topic.title}</h3>`;
                 if (topic.description) html += `<p class="topic-desc">${topic.description}</p>`;
