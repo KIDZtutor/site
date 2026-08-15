@@ -166,7 +166,7 @@ function initGlobalSearch(rows) {
                 if (!addedTexts.has(key)) {
                     addedTexts.add(key);
                     results.push({ 
-                        text: `📄 ${subject} › ${itemName}`, 
+                        text: `${getIconForLink(itemUrl, itemName)} ${subject} › ${itemName}`,
                         url: itemUrl || subjectUrl,
                         external: !!itemUrl 
                     });

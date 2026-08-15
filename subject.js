@@ -14,17 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getIconForLink(url = "", name = "") {
-        const u = url.toLowerCase();
-        const n = name.toLowerCase();
+    const u = url.toLowerCase();
+    const n = name.toLowerCase();
 
-        if (u.includes("youtu") || u.includes("rutube") || u.includes("vimeo") || u.endsWith(".mp4") || n.includes("видео") || n.includes("плейлист")) {
-            return "🎥";
-        }
-        if (u.includes("docs.google.com/presentation") || u.endsWith(".ppt") || u.endsWith(".pptx") || n.endsWith(".ppt") || n.endsWith(".pptx") || n.includes("презентаци") || n.includes("слайд")) {
-            return "🖼️";
-        }
+    // 1. Видео
+    if (u.includes("youtu") || u.includes("rutube") || u.includes("vimeo") || u.endsWith(".mp4") || n.includes("видео") || n.includes("плейлист")) {
+        return "🎥";
+    }
+    
+    // 2. Презентации
+    if (u.includes("docs.google.com/presentation") || u.endsWith(".ppt") || u.endsWith(".pptx") || n.endsWith(".ppt") || n.endsWith(".pptx") || n.includes("презентаци") || n.includes("слайд")) {
+        return "🖼️";
+    }
+    
+    // 3. Файлы и документы (Google Диск, Документы, PDF, Word, Excel + ключевые слова в названии)
+    if (u.includes("drive.google.com") || u.includes("docs.google.com/document") || u.includes("docs.google.com/spreadsheets") || u.endsWith(".pdf") || u.endsWith(".doc") || u.endsWith(".docx") || n.includes("учебник") || n.includes("атлас") || n.includes("документ") || n.includes("файл") || n.includes("книг")) {
         return "📄";
     }
+    
+    // 4. Все остальные внешние ссылки (например, сторонние сайты и приложения)
+    return "🔗"; 
+}
 
     function parseCSV(text) {
         const arr = [];
