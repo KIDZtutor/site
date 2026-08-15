@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // 3. Файлы и документы (Google Диск, Документы, PDF, Word, Excel + ключевые слова в названии)
-    if (u.includes("drive.google.com") || u.includes("docs.google.com/document") || u.includes("docs.google.com/spreadsheets") || u.endsWith(".pdf") || u.endsWith(".doc") || u.endsWith(".docx") || n.includes("учебник") || n.includes("атлас") || n.includes("документ") || n.includes("файл") || n.includes("книг")) {
+    if (u.includes("drive.google.com") || u.includes("docs.google.com/document") || u.includes("docs.google.com/spreadsheets") || u.endsWith(".pdf") || u.endsWith(".doc") || u.endsWith(".docx")) {
         return "📄";
     }
     
