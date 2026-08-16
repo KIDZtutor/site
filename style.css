@@ -320,4 +320,25 @@ h4, .subtopic h4 {
     border: none;
 }.topic-desc {
     white-space: pre-wrap;
+}/* Стили для подвала и дисклеймера */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #333; /* Тонкая линия, отделяющая основной контент от подвала */
+}
+
+.disclaimer-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #5c6bc0;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 0.85em; /* Делаем шрифт немного меньше основного */
+    color: #90a4ae; /* Приглушенный цвет текста */
+    line-height: 1.6;
+    max-width: 800px; /* Ограничиваем ширину, чтобы текст не растягивался на весь экран */
+    margin: 0 auto; /* Центрируем блок */
+}
+
+.disclaimer-box p {
+    margin: 8px 0;
 }
