@@ -200,4 +200,25 @@ function initGlobalSearch(rows) {
             dropdown.style.display = "none";
         }
     });
+}function getIconForLink(url = "", name = "") {
+    const u = url.toLowerCase();
+    const n = name.toLowerCase();
+
+    // 1. Видео
+    if (u.includes("youtu") || u.includes("rutube") || u.includes("vimeo") || u.endsWith(".mp4") || n.includes("видео") || n.includes("плейлист")) {
+        return "🎥";
+    }
+    
+    // 2. Презентации
+    if (u.includes("docs.google.com/presentation") || u.endsWith(".ppt") || u.endsWith(".pptx") || n.endsWith(".ppt") || n.endsWith(".pptx") || n.includes("презентаци") || n.includes("слайд")) {
+        return "🖼️";
+    }
+    
+    // 3. Файлы и документы 
+    if (u.includes("drive.google.com") || u.includes("docs.google.com/document") || u.includes("docs.google.com/spreadsheets") || u.endsWith(".pdf") || u.endsWith(".doc") || u.endsWith(".docx")) {
+        return "📄";
+    }
+    
+    // 4. Все остальные внешние ссылки
+    return "📌"; 
 }
