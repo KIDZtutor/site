@@ -4,33 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Архив КИДЗ | 1 курс</title>
+    <meta name="description" content="Архив учебных материалов для студентов педиатрического факультета СГМУ, 1 курс.">
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
     <header class="header">
         <div class="container header-content">
             <a href="index.html" class="logo">Архив КИДЗ | 1 курс</a>
             <div class="search-box">
-                <input type="text" id="global-search" placeholder="Глобальный поиск...">
-                <div id="search-dropdown" class="search-dropdown"></div>
+                <label class="visually-hidden" for="global-search">Глобальный поиск</label>
+                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off">
+                <div id="search-dropdown" class="search-dropdown" role="listbox" aria-expanded="false"></div>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <ul id="subjects-list" class="subjects-list">
+        <ul id="subjects-list" class="subjects-list" aria-live="polite">
             <li>Загрузка материалов...</li>
         </ul>
     </main>
 
- <script src="script.js"></script>
-    <script src="search.js"></script>
-<footer>
-    <div class="disclaimer-box">
-        <p><strong>📌 Обратите внимание:</strong> Данный архив является частной некоммерческой инициативой, созданной исключительно для взаимопомощи первокурсникам. </p>
-        <p>Все материалы собраны на базе учебной программы педиатрического факультета, актуальной на 2025/2026 учебный год. Автор архива не несет ответственности за дальнейшее распространение файлов третьими лицами, а также за возможные изменения в учебных планах кафедр.</p>
-    </div>
-</footer>
+    <footer>
+        <div class="container">
+            <div class="disclaimer-box">
+                <p><strong>📌 Обратите внимание:</strong> данный архив является частной некоммерческой инициативой, созданной исключительно для взаимопомощи первокурсникам.</p>
+                <p>Все материалы собраны на базе учебной программы педиатрического факультета, актуальной на 2025/2026 учебный год. Автор архива не несёт ответственности за дальнейшее распространение файлов третьими лицами, а также за возможные изменения в учебных планах кафедр.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>

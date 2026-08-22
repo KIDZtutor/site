@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Предмет | Архив СГМУ</title>
+    <title>Предмет | Архив КИДЗ</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
     <header class="header">
         <div class="container header-content">
             <a href="index.html" class="logo" id="subject-title">Предмет</a>
             <div class="search-box">
-                <input type="text" id="global-search" placeholder="Глобальный поиск...">
-                <div id="search-dropdown" class="search-dropdown"></div>
+                <label class="visually-hidden" for="global-search">Глобальный поиск</label>
+                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off">
+                <div id="search-dropdown" class="search-dropdown" role="listbox" aria-expanded="false"></div>
             </div>
         </div>
     </header>
 
     <main class="container">
         <a href="index.html" class="back-link">&larr; Назад к списку предметов</a>
-        <div id="topics-container">
+        <div id="topics-container" aria-live="polite">
             <p>Загрузка материалов...</p>
         </div>
     </main>
 
-    <!-- Сначала подключаем скрипт поиска, затем скрипт предмета -->
-    <script src="search.js"></script>
+    <script src="shared.js"></script>
     <script src="subject.js"></script>
 </body>
 </html>
