@@ -11,17 +11,19 @@
 
     <header class="header">
         <div class="container header-content">
-            <a href="index.html" class="logo" id="subject-title">Предмет</a>
+            <div class="logo-area">
+                <a href="index.html" class="logo">Архив КИДЗ</a>
+                <nav class="year-switcher" aria-label="Выбор курса"></nav>
+            </div>
             <div class="search-box">
-                <label class="visually-hidden" for="global-search">Глобальный поиск</label>
-                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off">
+                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off" aria-label="Глобальный поиск">
                 <div id="search-dropdown" class="search-dropdown" role="listbox" aria-expanded="false"></div>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <a href="index.html" class="back-link">&larr; Назад к списку предметов</a>
+        <a href="index.html" class="back-link" id="back-link">&larr; Назад к списку предметов</a>
         <div id="topics-container" aria-live="polite">
             <p>Загрузка материалов...</p>
         </div>

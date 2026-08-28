@@ -1,16 +1,23 @@
 /*
- * subject.js — логика страницы предмета (subject.html):
- * строит темы/подтемы/материалы для выбранного предмета (?id=...).
+ * subject.js — логика страницы предмета (subject.html).
  * Требует shared.js, подключённый ДО этого файла.
  */
 
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+    // Инициализируем переключатель курсов в шапке
+    initYearSwitcher();
+
     const params = new URLSearchParams(window.location.search);
     const subjectId = params.get("id");
+    const year = getCurrentYear();
 
-    const titleEl = document.getElementById("subject-title");
+    // Кнопка "Назад" ведёт на главную того же курса
+    const backLink = document.getElementById("back-link");
+    if (backLink) backLink.href = "index.html?year=" + year;
+
+    const titleEl   = document.getElementById("subject-title");
     const container = document.getElementById("topics-container");
 
     if (!subjectId) {
@@ -40,7 +47,7 @@ async function init() {
 
 function setTitle(titleEl, text) {
     if (titleEl) titleEl.textContent = text;
-    document.title = `${text} | Архив`;
+    document.title = `${text} | Архив КИДЗ`;
 }
 
 function renderMessage(container, text) {
@@ -51,10 +58,6 @@ function renderMessage(container, text) {
     container.appendChild(p);
 }
 
-/**
- * Собирает записи предмета в дерево: темы -> (материалы + подтемы -> материалы).
- * Пропускает строки без имени/ссылки материала, но не роняет весь предмет из-за одной плохой строки.
- */
 function buildSubject(records, subjectId) {
     const rows = records.filter(r => r.subjectId === subjectId);
     if (rows.length === 0) return null;
@@ -75,14 +78,11 @@ function buildSubject(records, subjectId) {
         }
         const topic = topicsByTitle.get(topicKey);
 
-        // Первая непустая описание темы, которую встретим, — сохраняем
-        if (!topic.description && row.moduleDesc) {
-            topic.description = row.moduleDesc;
-        }
-
+        if (!topic.description && row.moduleDesc) topic.description = row.moduleDesc;
         if (!row.itemName || !row.itemUrl) continue;
+
         const safeUrl = sanitizeUrl(row.itemUrl);
-        if (!safeUrl) continue; // пропускаем небезопасные/битые ссылки, не роняя остальное
+        if (!safeUrl) continue;
 
         const material = {
             name: row.itemName,
@@ -119,9 +119,7 @@ function renderTopics(subject, container) {
         return;
     }
 
-    subject.topics.forEach((topic, index) => {
-        container.appendChild(buildTopicBox(topic, index));
-    });
+    subject.topics.forEach((topic, index) => container.appendChild(buildTopicBox(topic, index)));
 }
 
 function buildTopicBox(topic, index) {
@@ -141,11 +139,8 @@ function buildTopicBox(topic, index) {
         heading.setAttribute("aria-expanded", String(!collapsed));
     };
     heading.addEventListener("click", toggle);
-    heading.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggle();
-        }
+    heading.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
     });
 
     box.appendChild(heading);
@@ -161,9 +156,7 @@ function buildTopicBox(topic, index) {
         content.appendChild(desc);
     }
 
-    if (topic.materials.length > 0) {
-        content.appendChild(buildMaterialsLinks(topic.materials));
-    }
+    if (topic.materials.length > 0) content.appendChild(buildMaterialsLinks(topic.materials));
 
     if (topic.subtopics.length > 0) {
         const subContainer = document.createElement("div");
@@ -172,15 +165,10 @@ function buildTopicBox(topic, index) {
         topic.subtopics.forEach(sub => {
             const subBox = document.createElement("div");
             subBox.className = "subtopic";
-
             const subHeading = document.createElement("h4");
             subHeading.textContent = sub.title;
             subBox.appendChild(subHeading);
-
-            if (sub.materials.length > 0) {
-                subBox.appendChild(buildMaterialsLinks(sub.materials));
-            }
-
+            if (sub.materials.length > 0) subBox.appendChild(buildMaterialsLinks(sub.materials));
             subContainer.appendChild(subBox);
         });
 

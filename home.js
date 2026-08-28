@@ -19,7 +19,7 @@ async function init() {
     }
 }
 
-/** Считает уникальные предметы и число материалов в каждом. */
+/** Собирает список уникальных предметов. */
 function collectSubjects(records) {
     const bySubject = new Map();
 
@@ -27,12 +27,8 @@ function collectSubjects(records) {
         if (!bySubject.has(rec.subjectId)) {
             bySubject.set(rec.subjectId, {
                 id: rec.subjectId,
-                title: rec.subjectTitle,
-                itemCount: 0
+                title: rec.subjectTitle
             });
-        }
-        if (rec.itemName && rec.itemUrl) {
-            bySubject.get(rec.subjectId).itemCount++;
         }
     }
 
@@ -66,31 +62,11 @@ function renderSubjects(records, container) {
         const li = document.createElement("li");
         const link = document.createElement("a");
         link.href = buildSubjectUrl(subject.id);
-
-        const titleSpan = document.createElement("span");
-        titleSpan.className = "subject-title";
-        titleSpan.textContent = subject.title;
-        link.appendChild(titleSpan);
-
-        if (subject.itemCount > 0) {
-            const countSpan = document.createElement("span");
-            countSpan.className = "subject-count";
-            countSpan.textContent = `${subject.itemCount} материал${pluralSuffix(subject.itemCount)}`;
-            link.appendChild(countSpan);
-        }
+        link.textContent = subject.title;
 
         li.appendChild(link);
         container.appendChild(li);
     }
-}
-
-/** Простое склонение слова "материал" под число (1 материал, 2 материала, 5 материалов). */
-function pluralSuffix(n) {
-    const mod10 = n % 10;
-    const mod100 = n % 100;
-    if (mod10 === 1 && mod100 !== 11) return "";
-    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "а";
-    return "ов";
 }
 
 function renderError(container) {

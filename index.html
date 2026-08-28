@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Архив КИДЗ | 1 курс</title>
-    <meta name="description" content="Архив учебных материалов для студентов педиатрического факультета СГМУ, 1 курс.">
+    <meta name="description" content="Архив учебных материалов для студентов педиатрического факультета СГМУ.">
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,10 +12,12 @@
 
     <header class="header">
         <div class="container header-content">
-            <a href="index.html" class="logo">Архив КИДЗ | 1 курс</a>
+            <div class="logo-area">
+                <a href="index.html" class="logo">Архив КИДЗ</a>
+                <nav class="year-switcher" aria-label="Выбор курса"></nav>
+            </div>
             <div class="search-box">
-                <label class="visually-hidden" for="global-search">Глобальный поиск</label>
-                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off">
+                <input type="text" id="global-search" placeholder="Глобальный поиск..." autocomplete="off" aria-label="Глобальный поиск">
                 <div id="search-dropdown" class="search-dropdown" role="listbox" aria-expanded="false"></div>
             </div>
         </div>
