@@ -15,15 +15,15 @@
  *
  * Курс передаётся через ?year=1 или ?year=2 в URL.
  * 1 курс  → первый лист (gid=0)
- * 2 курс  → второй лист (gid=1440724464)
+ * 2 курс  → второй лист (gid=1546904356)
  */
 
 // Базовый URL таблицы (без gid — он добавляется динамически)
-const SPREADSHEET_BASE_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRab9U4NkEN_nDzMDGPwYyLiFjJSh15rupb509MjKCRVk2du7EAJ5QtA633LfIUcuj3bUHL0QbIiwEm/pub?output=csv";
+const SPREADSHEET_BASE_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQo1BTijFHbQ-9CccGiWTz8cP-uzybyEsAdOyn9ce5TdwvKEDgMWnj1yye9kNBbhaJk66pCI5O-4GUU/pub?output=csv";
 
 const SHEET_GID = {
     "1": "0",
-    "2": "1440724464"
+    "2": "1546904356"
 };
 
 const CACHE_TTL_MS = 3 * 60 * 1000;
