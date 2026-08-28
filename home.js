@@ -7,6 +7,8 @@
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+    initYearSwitcher(); // <-- Добавьте эту строку здесь
+
     const listEl = document.getElementById("subjects-list");
 
     try {
@@ -14,7 +16,6 @@ async function init() {
         initGlobalSearch(records);
         renderSubjects(records, listEl);
     } catch (err) {
-        console.error("Ошибка при загрузке данных:", err);
         renderError(listEl);
     }
 }
